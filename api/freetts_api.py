@@ -20,7 +20,7 @@ class FreettsApi:
             print(response)
 
             if (response['status'] == 400 and response['message'] == "Ошибка синтеза"):
-                self.get_synthesized_text(text, voice_id)
+                return self.get_synthesized_text(text, voice_id)
             
             return response
         except:
