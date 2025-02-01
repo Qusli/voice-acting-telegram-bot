@@ -47,10 +47,10 @@ class VoiceActingTeleBot(telebot.TeleBot):
             self.logger.log(log)
         elif (response['status'] != 200 and response['message']):
             self.reply_to(message, f"🔴 {response['message']}, id сообщения {message.message_id}.")
-            self.logger.error(log)
+            self.logger.log(log)
         else:
             self.reply_to(message, f"🔴 Произошла ошибка при обработке сообщения с id: {message.message_id}. Повторите позже.")
-            self.logger.error(log)
+            self.logger.log(log)
 
 
 voice_acting_tele_bot = VoiceActingTeleBot()
