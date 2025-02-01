@@ -31,6 +31,8 @@ class VoiceActingTeleBot(telebot.TeleBot):
             "lastname": message.from_user.last_name
         }
 
+        print(log)
+
         self.logger.log(log)
 
         self.send_message(message.chat.id, f"🟡 Обработка сообщения с id {message.message_id} началась.")
