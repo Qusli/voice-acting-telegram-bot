@@ -41,6 +41,8 @@ class VoiceActingTeleBot(telebot.TeleBot):
 
         log["response"] = response
 
+        print(log)
+
         if (response['status'] == 200 and response['data']):
             self.send_document(message.chat.id, freetts_api.get_base_url() + response['data']['src'], caption=f"🟢 Обработка сообщения с id {message.message_id} закончилось.")
             self.delete_message(message.chat.id, message.message_id)

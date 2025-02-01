@@ -17,6 +17,8 @@ class FreettsApi:
 
             response = requests.post(self.get_base_url_api() + "/tts", json_body).json()
 
+            print(response)
+
             if (response['status'] == 400 and response['message'] == "Ошибка синтеза"):
                 self.get_synthesized_text(text, voice_id)
             
