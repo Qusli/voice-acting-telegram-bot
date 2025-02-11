@@ -2,7 +2,7 @@ import requests
 import json
 
 class FreettsApi:
-    _BASE_URL="https://freetts.ru" 
+    _BASE_URL = "https://freetts.ru" 
     _PREFIX = "/api/v1"
 
     def __init__(self):
@@ -19,6 +19,9 @@ class FreettsApi:
 
             print(response)
 
+            if (response['status'] == 400 and response['message'] == "Ошибка синтеза"):
+                return self.get_synthesized_text(text, voice_id)
+            
             return response
         except:
             return {
